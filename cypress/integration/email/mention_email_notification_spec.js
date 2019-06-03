@@ -83,7 +83,7 @@ function verifyEmailNotification(response, teamDisplayName, channelDisplayName, 
     expect(bodyText[5]).to.contain(`@${byUser.username}`);
     expect(bodyText[7]).to.equal(`${message}`);
     expect(bodyText[9]).to.contain('Go To Post');
-    expect(bodyText[11]).to.equal('Any questions at all, mail us any time: feedback@mattermost.com');
+    expect(bodyText[11]).to.equal('Any questions at all, mail us any time: soporte@statknows.com');
     expect(bodyText[12]).to.equal('Best wishes,');
     expect(bodyText[13]).to.equal('The Mattermost Team');
     expect(bodyText[15]).to.equal('To change your notification preferences, log in to your team site and go to Account Settings > Notifications.');

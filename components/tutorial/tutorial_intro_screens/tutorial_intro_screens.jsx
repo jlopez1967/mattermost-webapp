@@ -149,7 +149,7 @@ export default class TutorialIntroScreens extends React.Component {
             appDownloadLink = (
                 <FormattedMessage
                     id='tutorial_intro.mobileApps'
-                    defaultMessage='Install the apps for {link} for easy access and notifications on the go.'
+                    defaultMessage=''
                     values={{
                         link: (
                             <a
@@ -166,21 +166,6 @@ export default class TutorialIntroScreens extends React.Component {
                         ),
                     }}
                 />
-            );
-
-            appDownloadImage = (
-                <a
-                    id='appDownloadImage'
-                    href={link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    <img
-                        alt={'tutorial icons'}
-                        className='tutorial__app-icons'
-                        src={AppIcons}
-                    />
-                </a>
             );
         }
 
@@ -269,11 +254,12 @@ export default class TutorialIntroScreens extends React.Component {
                         defaultMessage='Need anything, just email us at '
                     />
                     <a
-                        href={'mailto:' + this.props.supportEmail}
+                        href={'mailto:soporte@statknows.com'}
                         target='_blank'
                         rel='noopener noreferrer'
+                    // eslint-disable-next-line react/jsx-no-literals
                     >
-                        {this.props.supportEmail}
+                        soporte@statknows.com
                     </a>
                     {'.'}
                 </p>

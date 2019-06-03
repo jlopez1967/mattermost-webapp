@@ -596,7 +596,7 @@ export default class FileUpload extends PureComponent {
             bodyAction = (
                 <div
                     id='fileUploadButton'
-                    className='icon icon--attachment'
+                    className='icon icon--attachment jcl2'
                 >
                     <AttachmentIcon/>
                     <input
@@ -648,7 +648,7 @@ export default class FileUpload extends PureComponent {
                         >
                             <div
                                 id='fileUploadButton'
-                                className='icon icon--attachment'
+                                className='icon icon--attachment jcl3'
                             >
                                 <AttachmentIcon/>
                             </div>

@@ -5,7 +5,7 @@ exports[`components/FileUpload should match snapshot 1`] = `
   className=""
 >
   <div
-    className="icon icon--attachment"
+    className="icon icon--attachment jcl1"
     id="fileUploadButton"
   >
     <AttachmentIcon />

@@ -119,7 +119,7 @@ export default class FileAttachment extends React.PureComponent {
         if (!compactDisplay) {
             fileThumbnail = (
                 <a
-                    className='post-image__thumbnail'
+                    className='post-image__thumbnail testJCL'
                     href='#'
                     onClick={this.onAttachmentClick}
                 >
@@ -136,6 +136,7 @@ export default class FileAttachment extends React.PureComponent {
                     className='post-image__detail_wrapper'
                     onClick={this.onAttachmentClick}
                 >
+                <h1>EEEEEEEEEE</h1>
                     <div className='post-image__detail'>
                         <span className={'post-image__name'}>
                             {trimmedFilename}

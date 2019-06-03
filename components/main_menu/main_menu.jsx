@@ -357,13 +357,6 @@ export default class MainMenu extends React.PureComponent {
                         text={localizeMessage('navbar_dropdown.nativeApps', 'Download Apps')}
                         icon={this.props.mobile && <i className='fa fa-mobile'/>}
                     />
-                    <MenuItemToggleModalRedux
-                        id='about'
-                        modalId={ModalIdentifiers.ABOUT}
-                        dialogType={AboutBuildModal}
-                        text={formatMessage({id: 'navbar_dropdown.about', defaultMessage: 'About {appTitle}'}, {appTitle: this.props.siteName || 'Mattermost'})}
-                        icon={this.props.mobile && <i className='fa fa-info'/>}
-                    />
                 </MenuGroup>
                 <MenuGroup>
                     <MenuItemAction
