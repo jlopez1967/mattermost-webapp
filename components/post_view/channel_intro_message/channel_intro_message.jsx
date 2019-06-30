@@ -479,6 +479,7 @@ function createStandardIntroMessage(channel, centeredIntro, locale) {
     }
 
     const channelInviteButton = createInviteChannelButton(channel);
+    const channelInviteART = createInviteChannelButtonART(channel);
 
     return (
         <div
@@ -501,8 +502,58 @@ function createStandardIntroMessage(channel, centeredIntro, locale) {
                 <br/>
             </p>
             {channelInviteButton}
+            {channelInviteART}
             {setHeaderButton}
         </div>
+    );
+}
+
+function createInviteChannelButtonART(channel) {
+    const modal = channel.group_constrained ? AddGroupsToChannelModal : ChannelInviteModal;
+    const channelIsArchived = channel.delete_at !== 0;
+    if (channelIsArchived) {
+        return null;
+    }
+    const isPrivate = channel.type === Constants.PRIVATE_CHANNEL;
+    return (
+        <ChannelPermissionGate
+            channelId={channel.id}
+            teamId={channel.team_id}
+            permissions={[isPrivate ? Permissions.MANAGE_PRIVATE_CHANNEL_MEMBERS : Permissions.MANAGE_PUBLIC_CHANNEL_MEMBERS]}
+        >
+            <ToggleModalButton
+                className='intro-links color--link'
+                dialogType={modal}
+                dialogProps={{channel}}
+            >
+                <FormattedMessage
+                    id='generic_icons.add'
+                    defaultMessage='Add Icon'
+                >
+                    {(title) => (
+                        <i
+                            className='fa fa-user-plus'
+                            title={title}
+                        />
+                    )}
+                </FormattedMessage>
+                {isPrivate && channel.group_constrained &&
+                    <FormattedMessage
+                        id='intro_messages.addGroups.2'
+                        defaultMessage='Add groups to this private channel'
+                    />}
+                {isPrivate && !channel.group_constrained &&
+                    <FormattedMessage
+                        id='intro_messages.invitePrivate.2'
+                        defaultMessage='Crear ART'
+                    />}
+                {!isPrivate &&
+                    <FormattedMessage
+                        id='intro_messages.invite.2'
+                        defaultMessage='Crear ART'
+                    />}
+            </ToggleModalButton>
+        </ChannelPermissionGate>
     );
 }
 
