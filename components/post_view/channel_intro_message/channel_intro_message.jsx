@@ -515,6 +515,28 @@ function createInviteChannelButtonART(channel) {
         return null;
     }
     const isPrivate = channel.type === Constants.PRIVATE_CHANNEL;
+
+    fetch('https://us-central1-codelco.cloudfunctions.net/createART?trigger_id=' + channel.trigger_id + '&channel_id=' + channel.id, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            trigger_id: channel.trigger_id,
+            channel_id: channel.id,
+            teamId: channel.team_id,
+        }),
+    }).then((response) => response.json()).
+        then((responseJson) => {
+            return responseJson.movies;
+        });
+
+    //.
+    //catch((error) => {
+    //    console.error(error);
+    //});
+
     return (
         <ChannelPermissionGate
             channelId={channel.id}
