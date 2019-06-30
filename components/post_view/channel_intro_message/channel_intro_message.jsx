@@ -97,7 +97,7 @@ function createGMIntroMessage(channel, centeredIntro, profiles, currentUserId) {
                 <p className='channel-intro-text'>
                     <FormattedMarkdownMessage
                         id='intro_messages.GM'
-                        defaultMessage='This is the start of your group message history with {names}.\nMessages and files shared here are not shown to people outside this area.'
+                        defaultMessage='Este es el inicio de tu historial de mensajes de grupo con {names}.\nLos mensajes y archivos que se comparten aquí no son mostrados a personas fuera de esta área.'
                         values={{
                             names: channel.display_name,
                         }}
