@@ -60,8 +60,8 @@ export default class NavbarInfoButton extends React.PureComponent {
             if (!isReadOnly) {
                 const link = (
                     <a
-                        href='#'
-                        onClick={this.showEditChannelHeaderModal}
+                        href='https://codelco.firebaseapp.com/ART/index.html?idART=4qimcke1iigszfmia8zwne47cw'
+                        onClick1={this.showEditChannelHeaderModal}
                     >
                         <FormattedMessage
                             id='navbar.click'
