@@ -34,7 +34,6 @@ export default class NavbarInfoButton extends React.PureComponent {
             dialogType: EditChannelHeaderModal,
             dialogProps: {channel},
         };
-
         actions.openModal(modalData);
     }
 
@@ -48,6 +47,7 @@ export default class NavbarInfoButton extends React.PureComponent {
         const {channel, isReadOnly} = this.props;
 
         let popoverContent = null;
+
         if (channel.header) {
             popoverContent = (
                 <Markdown
@@ -57,10 +57,23 @@ export default class NavbarInfoButton extends React.PureComponent {
             );
         } else {
             let addOne;
+            let addTwo;
+
             if (!isReadOnly) {
                 const link = (
                     <a
-                        href='https://codelco.firebaseapp.com/ART/index.html?idART=4qimcke1iigszfmia8zwne47cw'
+                        href={'https://codelco.firebaseapp.com/ART/index.html?idART={channel}'.replace('{channel}', this.props.channel.id)}
+                        onClick1={this.showEditChannelHeaderModal}
+                    >
+                        <FormattedMessage
+                            id='navbar.click'
+                            defaultMessage='Click here'
+                        />
+                    </a>
+                );
+                const link2 = (
+                    <a
+                        href={'https://codelco.firebaseapp.com/ART/loadART.html?idART={channel}'.replace('{channel}', this.props.channel.id)}
                         onClick1={this.showEditChannelHeaderModal}
                     >
                         <FormattedMessage
@@ -73,20 +86,38 @@ export default class NavbarInfoButton extends React.PureComponent {
                     <React.Fragment>
                         <br/>
                         <FormattedMessage
-                            id='navbar.clickToAddHeader'
-                            defaultMessage='{clickHere} to add one.'
+                            id='navbar.clickToAddHeader2'
+                            defaultMessage='Ver Análisis de Riesgo de Tareas (ART)  {clickHere}.'
                             values={{clickHere: link}}
                         />
+                        <br/>
+                        <FormattedMessage
+                            id='navbar.clickToAddHeader2'
+                            defaultMessage='Carga de Riesgos Asociados al ART {clickHere}.'
+                            values={{clickHere: link2}}
+                        />
                     </React.Fragment>
+                );
+
+                addTwo = (
+                    <React.Fragment>
+                        <br/>
+                        <React.WebView
+                            source={{uri: 'https://codelco.firebaseapp.com/ART/index.html?idART=4qimcke1iigszfmia8zwne47cw'}}
+                            style={{marginTop: 20}}
+                        />
+                    </React.Fragment>
+
                 );
             }
 
             popoverContent = (
                 <div>
                     <FormattedMessage
-                        id='navbar.noHeader'
-                        defaultMessage='No channel header yet.'
+                        id='navbar.noHeader11'
+                        defaultMessage='Gestión de Riesgos'
                     />
+                    <br/>
                     {addOne}
                 </div>
             );
@@ -100,6 +131,7 @@ export default class NavbarInfoButton extends React.PureComponent {
                 id='header-popover'
             >
                 {popoverContent}
+
                 <div
                     className='close visible-xs-block'
                     onClick={this.hide}
